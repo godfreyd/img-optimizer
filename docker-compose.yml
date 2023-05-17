@@ -1,0 +1,9 @@
+version: '3'
+services:
+  nginx:
+    image: nginx
+    ports:
+      - 80:8080
+    volumes:
+      - ./nginx/default.conf:/etc/nginx/nginx.conf
+    command: ["nginx", "-g", "daemon off;"]
