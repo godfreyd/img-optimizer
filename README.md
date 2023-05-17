@@ -2,13 +2,20 @@
 
 ## Quick start
 
-1. Replace the S3 URL (`s3.exapmle.com`) in `nginx/default.conf` with your own.
-1. Run the command `docker-compose up`.
+Run the command `docker-compose up`.
 
 ## URL structure
 
 `http://localhost/{s3_backet_domain}/{w}/{h}/{[resize|crop]}/{s3_backet_image_uri}`.
 
-**Example:**
+**Examples:**
 
-`https://s3.example.com/680/380/crop/image_1fe47c2a1f_e72eb738f7.png`.
+The original image URL: [https://via.placeholder.com/600/24f355](https://via.placeholder.com/600/24f355).
+
+- Resizing: [http://localhost/via.placeholder.com/200/200/resize/600/24f355](http://localhost/via.placeholder.com/200/200/resize/600/24f355).
+- Croping: [http://localhost/via.placeholder.com/200/200/crop/600/24f355](http://localhost/via.placeholder.com/200/200/crop/600/24f355).
+
+## Customization
+
+1. Replace the S3 backet URL (`via.placeholder.com`) in `nginx/default.conf` with your own.
+1. Add your own `$resize_variant` in `nginx/default.conf`.
